@@ -20,11 +20,11 @@
     <div class="elementor-form-fields-wrapper elementor-labels-above">
         <table style="width: 100%">
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
-                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Okenní křídlo (<b><?= empty($okenni_kridlo) ? 0 : esc_html($okenni_kridlo) ?> Kč/ks</b>)</label></td>
+                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Špaletové/kastlové okenní křídlo (<b><?= empty($okenni_kridlo_od) && empty($okenni_kridlo_do) ? 0 : "$okenni_kridlo_od - $okenni_kridlo_do" ?> Kč/ks</b>)</label></td>
                 <td><input type="number" name="okenni_kridlo" id="okenni_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet okenních křídel" style="width: 100%;"></td>
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
-                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Křídlo balkónových dvěří (<b><?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?> Kč/ks</b>)</label></td>
+                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Euro okno (<b><?= empty($euro_okno_od) && empty($euro_okno_do) ? 0 : "$euro_okno_od - $euro_okno_do" ?> Kč/ks</b>)</label></td>
                 <td><input type="number" name="balkonove_dvere_kridlo" id="balkonove_dvere_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet křídel balkonovách dveří" style="width: 100%;"></td>
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
@@ -38,7 +38,7 @@
         </table>
     </div>
 </form>
-<p>Cena: <b><span id="cena"><?= $cena ?></span> Kč</b> (bez DPH)</p>
+<p>Cena: <b><span id="cena"><?= $cena ?></span> Kč</b> (<?= !empty($ceny_bez_dph) && $ceny_bez_dph == "yes" ? "bez DPH" : "s DPH"; ?>)</p>
 <div style="border-top: 1px solid black; margin-top: 10px; color: var(--e-global-color-primary) !important">
     <?= $popis ?>
 </div>

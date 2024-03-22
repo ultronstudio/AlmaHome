@@ -110,6 +110,19 @@ class KalkulackaServis extends Widget_Base
 			]
 		);
 
+		// ceny jsou zadávány S nebo BEZ daně
+		$this->add_control(
+			'ceny_bez_dph',
+			[
+				'label' => esc_html__('Ceny jsou bez DPH', 'alma-home'),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Ano', 'alma-home'),
+				'label_off' => esc_html__('Ne', 'alma-home'),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
 		// cena za kus pro okenní křídlo
 		$this->add_control(
 			'okenni_kridlo',
@@ -166,6 +179,7 @@ class KalkulackaServis extends Widget_Base
 		$balkonove_dvere_kridlo = $settings["balkonove_dvere_kridlo"];
 		$psk_hs_portal = $settings["psk_hs_portal"];
 		$tesneni = $settings["tesneni"];
+		$ceny_bez_dph = $settings["ceny_bez_dph"];
 
 		$cena = 0;
 

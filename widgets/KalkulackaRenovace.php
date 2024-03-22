@@ -110,47 +110,59 @@ class KalkulackaRenovace extends Widget_Base
 			]
 		);
 
-		// cena za kus pro okenní křídlo
+		// ceny jsou zadávány S nebo BEZ daně
 		$this->add_control(
-			'okenni_kridlo',
+			'ceny_bez_dph',
 			[
-				'label' => esc_html__("Okenní křídlo (cena za kus, v Kč)", 'alma-home'),
+				'label' => esc_html__('Ceny jsou bez DPH', 'alma-home'),
+				'type' => \Elementor\Controls_Manager::SWITCHER,
+				'label_on' => esc_html__('Ano', 'alma-home'),
+				'label_off' => esc_html__('Ne', 'alma-home'),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
+
+		// minimální cena za kus špaletových nebo kastlových okenních křídel
+		$this->add_control(
+			'okenni_kridlo_od',
+			[
+				'label' => esc_html__("Špaletové/kastlové okenní křídlo (cena OD, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
 				'placeholder' => esc_html__("100", 'alma-home')
 			]
 		);
-
-		// cena za kus pro křídlo balkónových dveří
+		
+		// maximální cena za kus špaletových nebo kastlových okenních křídel
 		$this->add_control(
-			'balkonove_dvere_kridlo',
+			'okenni_kridlo_do',
 			[
-				'label' => esc_html__("Křídlo balkónových dvěří (cena za kus, v Kč)", 'alma-home'),
+				'label' => esc_html__("Špaletové/kastlové okenní křídlo (cena DO, v Kč)", 'alma-home'),
+				'type' => \Elementor\Controls_Manager::NUMBER,
+				'label_block' => true,
+				'placeholder' => esc_html__("500", 'alma-home')
+			]
+		);
+
+		// cena za kus euro okna
+		$this->add_control(
+			'euro_okno_od',
+			[
+				'label' => esc_html__("Euro okno (cena OD, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
 				'placeholder' => esc_html__("100", 'alma-home')
 			]
 		);
-
-		// cena za kus pro psk nebo hs portál
+		
 		$this->add_control(
-			'psk_hs_portal',
+			'euro_okno_do',
 			[
-				'label' => esc_html__("PSK nebo HS portál (cena za kus, v Kč)", 'alma-home'),
+				'label' => esc_html__("Euro okno (cena DO, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
-			]
-		);
-
-		// cena za metr pro výměnu těsnění
-		$this->add_control(
-			'tesneni',
-			[
-				'label' => esc_html__("Výměna těsnění (cena za metr, v Kč)", 'alma-home'),
-				'type' => \Elementor\Controls_Manager::NUMBER,
-				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("500", 'alma-home')
 			]
 		);
 
@@ -162,12 +174,12 @@ class KalkulackaRenovace extends Widget_Base
 
 		$titulek = $settings["titulek"];
 		$popis = $settings["popis"];
-		$okenni_kridlo = $settings["okenni_kridlo"];
-		$balkonove_dvere_kridlo = $settings["balkonove_dvere_kridlo"];
-		$psk_hs_portal = $settings["psk_hs_portal"];
-		$tesneni = $settings["tesneni"];
+		$okenni_kridlo_od = $settings["okenni_kridlo_od"];
+		$okenni_kridlo_do = $settings["okenni_kridlo_do"];
+		$euro_okno_od = $settings["euro_okno_od"];
+		$euro_okno_do = $settings["euro_okno_do"];
+		$ceny_bez_dph = $settings["ceny_bez_dph"];
 
-		// Váš vlastní kód pro cenovou kalkulačku
 		$cena = 0; // Výchozí hodnota
 
 		include_once dirname(__FILE__) . '/../render/kalkulacka-renovace.php';

@@ -37,7 +37,7 @@
         </table>
     </div>
 </form>
-<p>Cena: <b><span id="cena"><?= $cena ?></span> Kč</b> (bez DPH)</p>
+<p>Cena: <b><span id="cena"><?= $cena ?></span> Kč</b> (<?= !empty($ceny_bez_dph) && $ceny_bez_dph == "yes" ? "bez DPH" : "s DPH"; ?>)</p>
 <div style="border-top: 1px solid black; margin-top: 10px; color: var(--e-global-color-primary) !important">
     <?= $popis ?>
 </div>
