@@ -9,7 +9,7 @@
  * 
  * Plugin Name:       	ALMa Home
  * Description:       	Vlastní plugin pro ALMa Home
- * Version:           	1.0.1
+ * Version:           	1.0.2
  * Author:            	Petr Vurm
  * Author URI:        	https://petrvurm.cz
  * License:           	All Rights Reserved
@@ -48,10 +48,10 @@ function register_almahome_categories( $widgets_manager ) {
 function register_almahome_widgets($widgets_manager) : void
 {
     require_once __DIR__ . '/widgets/KalkulackaServis.php';
-    require_once __DIR__ . '/widgets/KalkulackaRenovace.php';
+    require_once __DIR__ . '/widgets/KalkulackaRenovace.php'; // od verze 1.0.2
 
     $widgets_manager->register(new \almahome\widgets\KalkulackaServis());
-    $widgets_manager->register(new \almahome\widgets\KalkulackaRenovace());
+    $widgets_manager->register(new \almahome\widgets\KalkulackaRenovace()); // od verze 1.0.2
 }
 
 /**
