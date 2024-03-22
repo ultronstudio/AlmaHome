@@ -21,19 +21,11 @@
         <table style="width: 100%">
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
                 <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Špaletové/kastlové okenní křídlo (<b><?= empty($okenni_kridlo_od) && empty($okenni_kridlo_do) ? 0 : "$okenni_kridlo_od - $okenni_kridlo_do" ?> Kč/ks</b>)</label></td>
-                <td><input type="number" name="okenni_kridlo" id="okenni_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet okenních křídel" style="width: 100%;"></td>
+                <td><input type="number" name="okenni_kridlo_od" id="okenni_kridlo_od" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet okenních křídel" style="width: 100%;"></td>
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
                 <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Euro okno (<b><?= empty($euro_okno_od) && empty($euro_okno_do) ? 0 : "$euro_okno_od - $euro_okno_do" ?> Kč/ks</b>)</label></td>
-                <td><input type="number" name="balkonove_dvere_kridlo" id="balkonove_dvere_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet křídel balkonovách dveří" style="width: 100%;"></td>
-            </tr>
-            <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
-                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">PSK nebo HS portál (<b><?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?> Kč/ks</b>)</label></td>
-                <td><input type="number" name="psk_hs_portal" id="psk_hs_portal" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet PSK/HS portálů" style="width: 100%;"></td>
-            </tr>
-            <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
-                <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Výměna těsnění (<b><?= empty($tesneni) ? 0 : esc_html($tesneni) ?> Kč/m</b>)<a href="#postup" style="color: red; text-decoration: none;">*</a></label></td>
-                <td><input type="number" name="tesneni" id="tesneni" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet metrů těsnění k výměně" style="width: 100%;"></td>
+                <td><input type="number" name="euro_okno" id="euro_okno" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet euro oken" style="width: 100%;"></td>
             </tr>
         </table>
     </div>
@@ -44,14 +36,12 @@
 </div>
 <script>
     jQuery(document).ready(function($) {
-        $("#okenni_kridlo, #balkonove_dvere_kridlo, #psk_hs_portal, #tesneni").on("input", function() {
-            var okenni_kridlo = parseFloat($("#okenni_kridlo").val()) || 0;
-            var balkonove_dvere_kridlo = parseFloat($("#balkonove_dvere_kridlo").val()) || 0;
-            var psk_hs_portal = parseFloat($("#psk_hs_portal").val()) || 0;
-            var tesneni = parseFloat($("#tesneni").val()) || 0;
+        $("#okenni_kridlo_od, #euro_okno").on("input", function() {
+            var okenni_kridlo_od = parseFloat($("#okenni_kridlo_od").val()) || 0;
+            var euro_okno = parseFloat($("#euro_okno").val()) || 0;
 
             // Zde můžete upravit logiku pro výpočet ceny podle potřeby
-            var novaCena = (okenni_kridlo * <?= empty($okenni_kridlo) ? 0 : esc_html($okenni_kridlo) ?>) + (balkonove_dvere_kridlo * <?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?>) + (psk_hs_portal * <?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?>) + (tesneni * <?= empty($tesneni) ? 0 : esc_html($tesneni) ?>);
+            var novaCena = (okenni_kridlo_od * <?= empty($okenni_kridlo_od) ? 0 : esc_html($okenni_kridlo_od) ?>) + (euro_okno * <?= empty($euro_okno_od) ? 0 : esc_html($euro_okno_od) ?>);
 
             $("#cena").html(novaCena.toFixed(0));
         });
