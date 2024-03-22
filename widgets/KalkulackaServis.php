@@ -1,5 +1,4 @@
 <?php
-
 namespace almahome\widgets;
 
 use Elementor\Widget_Base;
@@ -9,11 +8,11 @@ if(!defined('ABSPATH')) {
 }
 
 /**
- * Kalkulačka pro ALMa Home
+ * Kalkulačka servisu pro ALMa Home
  *
  * @since 1.0.0
  */
-class Kalkulacka extends Widget_Base
+class KalkulackaServis extends Widget_Base
 {
 
     /**
@@ -24,7 +23,7 @@ class Kalkulacka extends Widget_Base
      */
     public function get_name() : string
     {
-        return "kalkulacka";
+        return "kalkulacka-servis";
     }
 
 	/**
@@ -35,7 +34,7 @@ class Kalkulacka extends Widget_Base
 	 */
 	public function get_title() : string
 	{
-		return esc_html__("Kalkulačka", "alma-home");
+		return esc_html__("Kalkulačka servisu", "alma-home");
 	}
 
 	/**
@@ -68,7 +67,7 @@ class Kalkulacka extends Widget_Base
 	 */
 	public function get_keywords() : array
 	{
-		return ["kalkulačka", "cena", "alma home", "almahome"];
+		return ["kalkulačka", "cena", "alma home", "almahome", "servis"];
 	}
 
 	protected function register_controls() : void {
@@ -86,7 +85,8 @@ class Kalkulacka extends Widget_Base
 				'label' => esc_html__("Titulek", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'label_block' => true,
-				'placeholder' => esc_html__("Zadejte titulek", 'alma-home')
+				'placeholder' => esc_html__("Zadejte titulek", 'alma-home'),
+				'default' => "Kalkulačka servisu"
 			]
 		);
 
@@ -167,9 +167,8 @@ class Kalkulacka extends Widget_Base
 		$psk_hs_portal = $settings["psk_hs_portal"];
 		$tesneni = $settings["tesneni"];
 
-		// Váš vlastní kód pro cenovou kalkulačku
-		$cena = 0; // Výchozí hodnota
+		$cena = 0;
 
-		include_once dirname(__FILE__) . '/../render/kalkulacka.php';
+		include_once dirname(__FILE__) . '/../render/kalkulacka-servis.php';
 	}
 }

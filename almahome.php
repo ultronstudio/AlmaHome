@@ -47,9 +47,11 @@ function register_almahome_categories( $widgets_manager ) {
  */
 function register_almahome_widgets($widgets_manager) : void
 {
-    require_once __DIR__ . '/widgets/Kalkulacka.php';
+    require_once __DIR__ . '/widgets/KalkulackaServis.php';
+    require_once __DIR__ . '/widgets/KalkulackaRenovace.php';
 
-    $widgets_manager->register(new \almahome\widgets\Kalkulacka());
+    $widgets_manager->register(new \almahome\widgets\KalkulackaServis());
+    $widgets_manager->register(new \almahome\widgets\KalkulackaRenovace());
 }
 
 /**
