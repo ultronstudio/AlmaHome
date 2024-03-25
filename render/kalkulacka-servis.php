@@ -37,7 +37,7 @@
         </table>
     </div>
 </form>
-<p>Cena: <b><span id="cena"><?= $cena ?></span> Kč</b> (<?= !empty($ceny_bez_dph) && $ceny_bez_dph == "yes" ? "bez DPH" : "s DPH"; ?>)</p>
+<p>Cena: <b><span id="cena-servis"><?= $cena ?></span> Kč</b> (<?= !empty($ceny_bez_dph) && $ceny_bez_dph == "yes" ? "bez DPH" : "s DPH"; ?>)</p>
 <div style="border-top: 1px solid black; margin-top: 10px; color: var(--e-global-color-primary) !important">
     <?= $popis ?>
 </div>
@@ -52,7 +52,7 @@
             // Zde můžete upravit logiku pro výpočet ceny podle potřeby
             var novaCena = (okenni_kridlo * <?= empty($okenni_kridlo) ? 0 : esc_html($okenni_kridlo) ?>) + (balkonove_dvere_kridlo * <?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?>) + (psk_hs_portal * <?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?>) + (tesneni * <?= empty($tesneni) ? 0 : esc_html($tesneni) ?>);
 
-            $("#cena").html(novaCena.toFixed(0));
+            $("#cena-servis").html(novaCena.toFixed(0));
         });
     });
 </script>
