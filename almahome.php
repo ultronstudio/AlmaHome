@@ -9,7 +9,7 @@
  * 
  * Plugin Name:       	ALMa Home
  * Description:       	Vlastní plugin pro ALMa Home
- * Version:           	1.0.2
+ * Version:           	1.0.3
  * Author:            	Petr Vurm
  * Author URI:        	https://petrvurm.cz
  * License:           	All Rights Reserved
