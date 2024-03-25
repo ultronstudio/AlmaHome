@@ -96,7 +96,8 @@ class KalkulackaRenovace extends Widget_Base
 				'label' => esc_html__("Popis", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'label_block' => true,
-				'placeholder' => esc_html__("Zadejte popis", 'alma-home')
+				'placeholder' => esc_html__("Zadejte popis", 'alma-home'),
+				'default' => "<p>Konečná cena je vždy určena až na základě osobní prohlídky a posouzení stavu oken.</p>"
 			]
 		);
 
@@ -130,7 +131,8 @@ class KalkulackaRenovace extends Widget_Base
 				'label' => esc_html__("Špaletové/kastlové okenní křídlo (cena OD, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 5000
 			]
 		);
 		
@@ -141,7 +143,8 @@ class KalkulackaRenovace extends Widget_Base
 				'label' => esc_html__("Špaletové/kastlové okenní křídlo (cena DO, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("500", 'alma-home')
+				'placeholder' => esc_html__("500", 'alma-home'),
+				'default' => 10000
 			]
 		);
 
@@ -152,7 +155,8 @@ class KalkulackaRenovace extends Widget_Base
 				'label' => esc_html__("Euro okno (cena OD, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 3000
 			]
 		);
 		
@@ -162,7 +166,8 @@ class KalkulackaRenovace extends Widget_Base
 				'label' => esc_html__("Euro okno (cena DO, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("500", 'alma-home')
+				'placeholder' => esc_html__("500", 'alma-home'),
+				'default' => 8000
 			]
 		);
 

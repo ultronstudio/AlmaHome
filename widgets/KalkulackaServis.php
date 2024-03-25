@@ -96,7 +96,33 @@ class KalkulackaServis extends Widget_Base
 				'label' => esc_html__("Popis", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::TEXTAREA,
 				'label_block' => true,
-				'placeholder' => esc_html__("Zadejte popis", 'alma-home')
+				'placeholder' => esc_html__("Zadejte popis", 'alma-home'),
+				'default' => '<p style="margin-top: 10px;" id="postup"><b><span style="color: red;">*</span>&nbsp;Postup měření těsnění k výměně</b></p>
+				<ol>
+						<li>Změřte rozměr okna (šířku i výšku) v běžných metrech</li>
+						<li>
+							Pokud chcete vyměnit těsnění jak v okenním rámu, tak v křídle:<br>
+							<ul>
+								<li>
+									Hodnoty vypočtěte pomocí vzorce níže:<br>
+									Jednokřídlé okno: <b>(šířka + výška)*4</b><br>
+									Dvoukřídlé okno: <b>(šířka + výška)*2 + šířka*2 + výška*4</b><br>
+									Trojkřídlé okno: <b>šířka*2 + výška*4 + šířka*2 + výška*6</b>
+								</li>
+							</ul>
+						</li>
+						<li>
+							Pokud chcete vyměnit těsnění jen v okenním rámu:
+							<ul>
+								<li>
+									Hodnoty vypočtěte pomocí vzorce níže:<br>
+									Jednokřídlé a dvoukřídlé okno: <b>(šířka + výška)*2</b><br>
+									Trojkřídlé okno: <b>šířka*2 + výška*4</b>
+								</li>
+							</ul>
+						</li>
+					</ol>
+				<p>Při výměně těsnění je servis oken prováděn <b style="color: red;">ZDARMA</b>.</p>'
 			]
 		);
 
@@ -119,7 +145,7 @@ class KalkulackaServis extends Widget_Base
 				'label_on' => esc_html__('Ano', 'alma-home'),
 				'label_off' => esc_html__('Ne', 'alma-home'),
 				'return_value' => 'yes',
-				'default' => 'yes',
+				'default' => 'yes'
 			]
 		);
 
@@ -130,7 +156,8 @@ class KalkulackaServis extends Widget_Base
 				'label' => esc_html__("Okenní křídlo (cena za kus, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 220
 			]
 		);
 
@@ -141,7 +168,8 @@ class KalkulackaServis extends Widget_Base
 				'label' => esc_html__("Křídlo balkónových dvěří (cena za kus, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 390
 			]
 		);
 
@@ -152,7 +180,8 @@ class KalkulackaServis extends Widget_Base
 				'label' => esc_html__("PSK nebo HS portál (cena za kus, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 490
 			]
 		);
 
@@ -163,7 +192,8 @@ class KalkulackaServis extends Widget_Base
 				'label' => esc_html__("Výměna těsnění (cena za metr, v Kč)", 'alma-home'),
 				'type' => \Elementor\Controls_Manager::NUMBER,
 				'label_block' => true,
-				'placeholder' => esc_html__("100", 'alma-home')
+				'placeholder' => esc_html__("100", 'alma-home'),
+				'default' => 145
 			]
 		);
 
