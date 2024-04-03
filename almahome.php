@@ -8,7 +8,7 @@
  * @license 			private
  * Plugin Name:       	ALMa Home
  * Description:       	Vlastní plugin pro ALMa Home
- * Version:           	1.0.3
+ * Version:           	1.0.4
  * Author:            	Petr Vurm
  * Author URI:        	https://petrvurm.cz
  * License:           	All Rights Reserved
