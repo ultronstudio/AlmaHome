@@ -23,7 +23,6 @@
                 <td><input type="number" name="okenni_kridlo_od" id="okenni_kridlo_od" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet okenních křídel" style="width: 100%;" min="0"></td>
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
-            <?= var_dump($euro_okno_od); ?>
                 <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Euro okno (<b><?= empty($euro_okno_od) && empty($euro_okno_do) ? 0 : number_format($euro_okno_od, 0, ',', ' ') . " - " . number_format($euro_okno_do, 0, ',', ' ') ?> Kč/ks</b>)</label></td>
                 <td><input type="number" name="euro_okno" id="euro_okno" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet okenních křídel" style="width: 100%;" min="0"></td>
             </tr>
