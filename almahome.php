@@ -6,7 +6,6 @@
  * @author 				Petr Vurm
  * @copyright 			2024 Petr Vurm
  * @license 			private
- * 
  * Plugin Name:       	ALMa Home
  * Description:       	Vlastní plugin pro ALMa Home
  * Version:           	1.0.3
