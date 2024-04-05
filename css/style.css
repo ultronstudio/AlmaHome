@@ -1,0 +1,15 @@
+.kalkulacka {
+    border: none !important;
+}
+
+.kalkulacka>tbody {
+    border: none !important;
+}
+
+.kalkulacka>tbody>tr {
+    border: none !important;
+}
+
+.kalkulacka>tbody>tr>td {
+    border: none !important;
+}
