@@ -24,7 +24,7 @@
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
                 <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">Křídlo balkónových dvěří (<b><?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?> Kč/ks</b>)</label></td>
-                <td><input type="number" name="balkonove_dvere_kridlo" id="balkonove_dvere_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet křídel balkonovách dveří" style="width: 100%;"></td>
+                <td><input type="number" name="balkonove_dvere_kridlo" id="balkonove_dvere_kridlo" class="elementor-field elementor-size-md elementor-field-textual" placeholder="Počet křídel balkónových dveří" style="width: 100%;"></td>
             </tr>
             <tr class="elementor-field-type-text elementor-field-group elementor-field-group-name" style="margin-bottom: 10px; width: 100%">
                 <td style="width: fit-content;"><label for="form-field-name" class="elementor-field-label">PSK nebo HS portál (<b><?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?> Kč/ks</b>)</label></td>
