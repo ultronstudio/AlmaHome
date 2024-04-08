@@ -34,16 +34,28 @@
     <?= $popis ?>
 </div>
 <script>
-    jQuery(document).ready(function($) {
-        $("#okenni_kridlo_od, #euro_okno").on("input", function() {
-            var okenni_kridlo_od = parseFloat($("#okenni_kridlo_od").val()) || 0;
-            var euro_okno = parseFloat($("#euro_okno").val()) || 0;
+    document.addEventListener("DOMContentLoaded", function() {
+        var okenni_kridlo_od = document.getElementById("okenni_kridlo_od");
+        var euro_okno = document.getElementById("euro_okno");
+        var cenaRenovace = document.getElementById("cena-renovace");
 
-            // Zde můžete upravit logiku pro výpočet ceny podle potřeby
-            var novaCena = (okenni_kridlo_od * <?= empty($okenni_kridlo_od) ? 0 : esc_html($okenni_kridlo_od) ?>) + (euro_okno * <?= empty($euro_okno_od) ? 0 : esc_html($euro_okno_od) ?>);
-            var novaCena2 = (okenni_kridlo_od * <?= empty($okenni_kridlo_do) ? 0 : esc_html($okenni_kridlo_do) ?>) + (euro_okno * <?= empty($euro_okno_do) ? 0 : esc_html($euro_okno_do) ?>);
+        function updateCenaRenovace() {
+            alma.Zprava("Aktualizuji celkovou cenu renovace");
 
-            $("#cena-renovace").html(`od ${alma.CzechPrice(novaCena, 0)} do ${alma.CzechPrice(novaCena2, 0)}`);
-        });
+            var cena_okenni_kridlo_od = parseFloat(okenni_kridlo_od.value) || 0;
+            var cena_euro_okno = parseFloat(euro_okno.value) || 0;
+
+            var novaCena = (cena_okenni_kridlo_od * <?= empty($okenni_kridlo_od) ? 0 : esc_html($okenni_kridlo_od) ?>) +
+                (cena_euro_okno * <?= empty($euro_okno_od) ? 0 : esc_html($euro_okno_od) ?>);
+            var novaCena2 = (cena_okenni_kridlo_od * <?= empty($okenni_kridlo_do) ? 0 : esc_html($okenni_kridlo_do) ?>) +
+                (cena_euro_okno * <?= empty($euro_okno_do) ? 0 : esc_html($euro_okno_do) ?>);
+
+            cenaRenovace.innerHTML = `od ${alma.CzechPrice(novaCena, 0)} do ${alma.CzechPrice(novaCena2, 0)}`;
+
+            alma.Zprava("Aktualizace celkové ceny renovace dokončena");
+        }
+
+        okenni_kridlo_od.addEventListener("input", updateCenaRenovace);
+        euro_okno.addEventListener("input", updateCenaRenovace);
     });
 </script>

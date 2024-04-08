@@ -42,17 +42,34 @@
     <?= $popis ?>
 </div>
 <script>
-    jQuery(document).ready(function($) {
-        $("#okenni_kridlo, #balkonove_dvere_kridlo, #psk_hs_portal, #tesneni").on("input", function() {
-            var okenni_kridlo = parseFloat($("#okenni_kridlo").val()) || 0;
-            var balkonove_dvere_kridlo = parseFloat($("#balkonove_dvere_kridlo").val()) || 0;
-            var psk_hs_portal = parseFloat($("#psk_hs_portal").val()) || 0;
-            var tesneni = parseFloat($("#tesneni").val()) || 0;
+    document.addEventListener("DOMContentLoaded", function() {
+        var okenni_kridlo = document.getElementById("okenni_kridlo");
+        var balkonove_dvere_kridlo = document.getElementById("balkonove_dvere_kridlo");
+        var psk_hs_portal = document.getElementById("psk_hs_portal");
+        var tesneni = document.getElementById("tesneni");
+        var cenaServis = document.getElementById("cena-servis");
 
-            // Zde můžete upravit logiku pro výpočet ceny podle potřeby
-            var novaCena = (okenni_kridlo * <?= empty($okenni_kridlo) ? 0 : esc_html($okenni_kridlo) ?>) + (balkonove_dvere_kridlo * <?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?>) + (psk_hs_portal * <?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?>) + (tesneni * <?= empty($tesneni) ? 0 : esc_html($tesneni) ?>);
+        function updateCenaServis() {
+            alma.Zprava("Aktualizuji celkovou cenu servisu");
 
-            $("#cena-servis").html(alma.CzechPrice(novaCena, 0));
-        });
+            var cena_okenni_kridlo = parseFloat(okenni_kridlo.value) || 0;
+            var cena_balkonove_dvere_kridlo = parseFloat(balkonove_dvere_kridlo.value) || 0;
+            var cena_psk_hs_portal = parseFloat(psk_hs_portal.value) || 0;
+            var cena_tesneni = parseFloat(tesneni.value) || 0;
+
+            var novaCena = (cena_okenni_kridlo * <?= empty($okenni_kridlo) ? 0 : esc_html($okenni_kridlo) ?>) +
+                (cena_balkonove_dvere_kridlo * <?= empty($balkonove_dvere_kridlo) ? 0 : esc_html($balkonove_dvere_kridlo) ?>) +
+                (cena_psk_hs_portal * <?= empty($psk_hs_portal) ? 0 : esc_html($psk_hs_portal) ?>) +
+                (cena_tesneni * <?= empty($tesneni) ? 0 : esc_html($tesneni) ?>);
+
+            cenaServis.innerHTML = alma.CzechPrice(novaCena, 0);
+
+            alma.Zprava("Aktualizace celkové ceny servisu dokončena");
+        }
+
+        okenni_kridlo.addEventListener("input", updateCenaServis);
+        balkonove_dvere_kridlo.addEventListener("input", updateCenaServis);
+        psk_hs_portal.addEventListener("input", updateCenaServis);
+        tesneni.addEventListener("input", updateCenaServis);
     });
 </script>
