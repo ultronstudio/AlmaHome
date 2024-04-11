@@ -7,6 +7,8 @@ if(!defined('ABSPATH')) {
     exit;
 }
 
+global $is_safari;
+
 /**
  * Kalkulačka servisu pro ALMa Home
  *

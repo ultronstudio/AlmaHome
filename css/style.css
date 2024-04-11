@@ -13,3 +13,7 @@
 .kalkulacka>tbody>tr>td {
     border: none !important;
 }
+
+p {
+    color: #000 !important;
+}
